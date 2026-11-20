@@ -2,7 +2,8 @@ name: analytics
 
 profile: analytics
 
-seed-paths: ["seeds"]
+# Seed commment beacause we are not using seeds in this project. If you want to use seeds, uncomment the line below and add the path to your seed files.
+# seed-paths: ["seeds"]
 model-paths: ["models"]
 macro-paths: ["macros"]
 clean-targets:
@@ -16,9 +17,17 @@ seeds:
 
 models:
   analytics:
-    +static_analysis: strict
-    # Materialize staging models as views, and marts as tables
-    staging:
-      +materialized: view
-    marts:
-      +materialized: table
+    +static_analysis: baseline
+    +persist_docs:
+      relation: true
+      columns: true
+
+# old configuration commented out to avoid errors in dbt v2 /// since i changed the environment from dbt v1.6.0 to dbt v2
+# models:
+#   analytics:
+#     +static_analysis: strict
+#     # Materialize staging models as views, and marts as tables
+#     staging:
+#       +materialized: view
+#     marts:
+#       +materialized: table

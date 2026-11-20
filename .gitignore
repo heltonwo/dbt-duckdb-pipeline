@@ -12,8 +12,9 @@ wheels/
 # Database Files & logs
 data/
 *.duckdb
+*.duckdb.wal
 logs/
 scripts/
 
 # Virtual environments
-.venv
+.venv2
