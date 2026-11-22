@@ -2,7 +2,7 @@ name: analytics
 
 profile: analytics
 
-# Seed commment beacause we are not using seeds in this project. If you want to use seeds, uncomment the line below and add the path to your seed files.
+# Seed comment because we are not using seeds in this project. If you want to use seeds, uncomment the line below and add the path to your seed files.
 # seed-paths: ["seeds"]
 model-paths: ["models"]
 macro-paths: ["macros"]
@@ -10,13 +10,15 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-seeds:
-  # Builds seeds into '<your_schema_name>_raw'
-  analytics:
-    +schema: raw
+# we did not use seeds(folder) in this project, instead we use data folder with parquet files
+# seeds:
+#   # Builds seeds into '<your_schema_name>_raw'
+#   analytics:
+#     +schema: raw
 
 models:
   analytics:
+    +materialized: table
     +static_analysis: baseline
     +persist_docs:
       relation: true
