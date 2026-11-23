@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table' if target.name == 'prod' else 'view') }}
 
 SELECT
     job_id,
