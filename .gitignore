@@ -6,15 +6,21 @@ dist/
 wheels/
 *.egg-info
 
-# notes
--notas
+# Notes
+-notas/
 
-# Database Files & logs
+# Database files and logs
 data/
 *.duckdb
 *.duckdb.wal
 logs/
-scripts/
+
+# Keep only the data downloader in Git
+scripts/*
+!scripts/download_data.py
+
+# dbt generated files
+.user.yml
 
 # Virtual environments
-.venv2
+.venv2/
