@@ -24,3 +24,4 @@ scripts/*
 
 # Virtual environments
 .venv2/
+.venv
